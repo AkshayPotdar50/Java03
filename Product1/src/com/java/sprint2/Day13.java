@@ -10,6 +10,7 @@ public class Day13 {
         List<Integer> list1 = Arrays.asList(1, 2, 3, 4, 5);
         //finding even numbers
         List<Integer> even =list1.stream().filter(num->num%2==0).toList();
+        System.out.println(even);
 
         //find maximum value
         Optional<Integer> max=list1.stream().max(Integer::compare);
