@@ -1,8 +1,8 @@
 package com.java.sprint2;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class Day14 {
     public static void main(String[] args) {
@@ -115,7 +115,56 @@ public static void swapNumbers(int a, int b){
         }
     }
 
-    //
+    //Iterate over arraylist using for loop, while loop and advanced for loop
+    public void iterateList(List<Integer> list){
+        //using for loop
+        for(int i=0; i<list.size();i++){
+            System.out.println(list.get(i));
+        }
+
+        //using while loop
+        int j=0;
+        while(j<list.size()){
+            System.out.println(list.get(j));
+            j++;
+        }
+
+        //using enhanced for loop
+        for(int item:list){
+            System.out.println(item);
+        }
+    }
+
+    //write a java program to find duplicate character in string
+
+
+    //using java 8
+    public static void findDuplicate(String str){
+        Map<Character, Long> charFreq=str.chars()
+                .mapToObj(c->(char)c)
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        for(Map.Entry<Character, Long> entry:charFreq.entrySet()){
+            if(entry.getValue()>1){
+                System.out.println(entry.getKey()+" :"+entry.getValue());
+
+            }
+        }
+    }
+
+    //write a java program to find second heighest number in array
+    public static int findHeighest(int[] arr){
+        int heighest= Arrays.stream(arr).distinct().boxed().sorted((a, b)->b-a).skip(1).findFirst().orElse(-1);
+        return heighest;
+    }
+
+
+    //write a java program to find second Lowest number in array
+    public static int findLowest(int[] arr){
+        int Lowest= Arrays.stream(arr).distinct().boxed().sorted().skip(1).findFirst().orElse(-1);
+        return Lowest;
+    }
+
+    
 
 
 
