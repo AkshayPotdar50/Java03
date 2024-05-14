@@ -17,8 +17,20 @@ public class Day1 implements Cloneable{
 
     public static void main(String[] args) throws CloneNotSupportedException {
         String str1="akshay";
-        int a=findFirstRepetatingCharacter(str1);
+        int a=findFirstRepetatingCharacter(str1);//this will return index of a
         System.out.println(a);
+        int b=findFirstNonReapeating(str1);//this will return index of k
+        System.out.println(b);
+
+        System.out.println("**********************************************");
+
+        String[] arr={"1", "2", "3", "4", "5"};
+
+        String smallest= formTheSmallestNumber(arr);
+        System.out.println("smallest number"+ smallest);
+        String largest=formTheLargestNumber(arr);
+        System.out.println("largest number"+ largest);
+
 
 
 
@@ -55,12 +67,32 @@ for(String s:arr){
 return str1.toString();
     }
 
+    public static String formTheSmallestNumber(String[] arr){
+        Arrays.sort(arr, (num1, num2)->(num1+num2).compareTo(num2+num1));
+        StringBuilder str2=new StringBuilder();
+        for(String s:arr){
+            str2.append(s);
+        }
+        return str2.toString();
+    }
+
     public static int findFirstRepetatingCharacter(String str){
         for(int i=0; i<str.length();i++){
             char c=str.charAt(i);
             if(str.indexOf(c) != str.lastIndexOf(c)){
                 return i;
             }
+        }
+        return -1;
+    }
+
+    public static int findFirstNonReapeating(String str){
+        for(int i=0; i<str.length();i++){
+            char c=str.charAt(i);
+            if(str.indexOf(c)==str.lastIndexOf(c)){
+                return i;
+            }
+
         }
         return -1;
     }

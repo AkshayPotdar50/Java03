@@ -1,5 +1,7 @@
 package com.java.sprint1;
 
+import java.util.Objects;
+
 // Step 1: Declare the class as final so it cannot be subclassed
 public final class ImmutableClass {
 
@@ -43,7 +45,7 @@ public final class ImmutableClass {
         ImmutableClass that = (ImmutableClass) o;
 
         if (intValue != that.intValue) return false;
-        return stringValue != null ? stringValue.equals(that.stringValue) : that.stringValue == null;
+        return Objects.equals(stringValue, that.stringValue);
     }
 
     // Step 8: Optionally, override toString for meaningful string representation

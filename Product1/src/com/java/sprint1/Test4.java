@@ -14,9 +14,33 @@ public class Test4 {
         System.out.println(average);
         System.out.println("*********************************************");
 
-        int secondLargest = Arrays.stream(numbers).distinct().boxed().sorted((a, b) -> b - a).skip(1L).findFirst().orElse(-1);
+        int secondLargest = Arrays.stream(numbers).distinct().boxed().sorted(Comparator.reverseOrder()).skip(1L).findFirst().orElse(-1);
         System.out.println(secondLargest);
         System.out.println("*********************************************");
+
+        //we can do the same for string array
+
+        //1.Sort strings alphabetically in ascending order:
+        String[] array1={"akshay", "ashish", "akshata", "swapnil", "sarang"};
+        String[] sorted1=Arrays.stream(array1).sorted().toArray(String[]::new);
+        System.out.println(Arrays.toString(sorted1));
+
+        System.out.println("********************************************");
+        //2.Sort strings alphabetically in descending order:
+        String[] sorted2=Arrays.stream(array1).sorted(Comparator.reverseOrder()).toArray(String[]::new);
+        System.out.println(Arrays.toString(sorted2));
+
+        System.out.println("*********************************************");
+        //3.Sort strings by length in ascending order:
+        String[] byLength=Arrays.stream(array1).sorted(Comparator.comparing(String::length)).toArray(String[]::new);
+        System.out.println(Arrays.toString(byLength));
+        System.out.println("*************************************************");
+
+        //4.Sort strings by length in descending order:
+        String[] byLenghtReverse=Arrays.stream(array1).sorted(Comparator.comparing(String::length).reversed()).toArray(String[]::new);
+        System.out.println(Arrays.toString(byLenghtReverse));
+
+        System.out.println("***********************************************");
 
         int secondMinimum = Arrays.stream(numbers).distinct().boxed().sorted().skip(1L).findFirst().orElse(-1);
         System.out.println(secondMinimum);
@@ -52,6 +76,21 @@ public class Test4 {
         }
         while (insertPos<nums.length){
             nums[insertPos++]=0;
+        }
+        return nums;
+    }
+
+    //version:2
+
+    public static int[] moveZerosR(int[] nums){
+        int insertpos=0;
+        for(int num:nums){
+            if(num != 0){
+                nums[insertpos ++]=num;
+            }
+        }
+        while (insertpos <nums.length){
+            nums[insertpos++]=0;
         }
         return nums;
     }
