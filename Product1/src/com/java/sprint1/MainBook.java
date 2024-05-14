@@ -2,6 +2,7 @@ package com.java.sprint1;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 class Book {
     private String tittle;
@@ -64,7 +65,7 @@ public class MainBook{
         List<Book> books= Arrays.asList(
                 new Book("java 8 in action", "akshay potddar", 2014, 40),
                 new Book("effective java", "joshua bloch", 2008, 35.0),
-                new Book("clean code", "robert c", 2008, 35.0),
+                new Book("clean code", "robert c", 2008, 34.0),
                 new Book("the programmer", "andrew hunt", 1999, 50)
         );
 
@@ -77,6 +78,11 @@ public class MainBook{
 
         //apply certain discount on each price and print it
         books.stream().map(book->book.getPrice()*0.80).forEach(System.out::println);
+        System.out.println("*****************************************************");
+
+        //prints list of books having price greater than 35.0
+        List<Book> books2=books.stream().filter(book->book.getPrice()>35.0 && book.getYear()>2008).toList();
+        System.out.println(books2);
 
 
 
