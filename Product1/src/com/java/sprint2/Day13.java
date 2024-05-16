@@ -12,11 +12,30 @@ public class Day13 {
         List<Integer> even =list1.stream().filter(num->num%2==0).toList();
         System.out.println(even);
 
+        //fonding odd numbers
+        List<Integer> odd=list1.stream().filter(num->num %2 !=0).toList();
+        System.out.println(odd);
+
         //find maximum value
         Optional<Integer> max=list1.stream().max(Integer::compare);
 
+        Optional<Integer> max2=list1.stream().max(Comparator.reverseOrder());
+        //above will return min
+
+        //finding minimum
+        Optional<Integer> min=list1.stream().min(Integer::compare);
+
+        Optional<Integer> min2=list1.stream().min(Comparator.reverseOrder());
+        //above will return maximum
+
+
+
         //find sum of elements
         int sum=list1.stream().mapToInt(Integer::intValue).sum();
+       boolean check= list1.stream().mapToInt(Integer::intValue).anyMatch(num->num>6);
+        System.out.println(check);
+        int sum3=list1.stream().mapToInt(Integer::intValue).reduce(1, Integer::sum);
+        System.out.println(sum3);
 
         //convert to uppercase
         List<String> list2 =Arrays.asList("alice gandhi", "bob chawla", "charlie dube");
@@ -24,9 +43,12 @@ public class Day13 {
 
         //sorting operations
         List<Integer>sorted=list1.stream().sorted((a,b)->Integer.compare(b,a)).toList();
+        List<Integer> sorted2=list1.stream().sorted(Integer::compare).toList();
 
         //count the element
         long count = list1.stream().filter(n->n<5).count();
+        long countEven=list1.stream().filter(n-> n%2==0).count();
+        long counOdd=list1.stream().filter(n->n%2 !=0).count();
 
         //get ditinct element
         List<Integer> distinct=list1.stream().distinct().toList();
