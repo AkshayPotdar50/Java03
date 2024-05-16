@@ -16,6 +16,12 @@ public class Test5 {
 
         System.out.println("check string is palindrome or not");
         System.out.println(isPalindrome(str2));
+
+        System.out.println("*******************************************----");
+        System.out.println("check anagram");
+        String str1 = "akshay";
+        String str3 = "yaksha";
+        System.out.println(checkAnagram(str1, str3));
         System.out.println("*************************************");
 
         String reversed = (new StringBuilder(str2)).reverse().toString();
@@ -29,10 +35,10 @@ public class Test5 {
         System.out.println(vowelCount);
         System.out.println("***************************************");
 
-        String str1 = "akshay";
-        String str3 = "yaksha";
-        String concatenated = str1 + str1;
-        System.out.println(concatenated.contains(str3));
+        String str14 = "akshay";
+        String str31 = "yaksha";
+        String concatenated = str14 + str14;
+        System.out.println(concatenated.contains(str31));
         System.out.println("******************************");
     }
 

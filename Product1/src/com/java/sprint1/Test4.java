@@ -116,5 +116,20 @@ public class Test4 {
         return nums;
     }
 
+    //version:2
+
+    public static int[] moveZerosTolef(int[] nums){
+        int inserpos=nums.length-1;
+        for(int i=nums.length-1 ; i>=0; i--){
+            if(nums[i] !=0){
+                nums[inserpos--]=nums[i];
+            }
+        }
+        while (inserpos >=0){
+            nums[inserpos--]=0;
+        }
+        return nums;
+    }
+
 
 }
