@@ -84,6 +84,14 @@ public class MainBook{
         List<Book> books2=books.stream().filter(book->book.getPrice()>35.0 && book.getYear()>2008).toList();
         System.out.println(books2);
 
+        //now we will use all the setter methods
+        System.out.println("*********************************************************");
+      List<Book> modified=  books.stream().filter(tittle->tittle.getTittle().toLowerCase().contains("java")).map(book->{
+            book.setTittle("Java modified"+ book.getTittle());
+            return book;
+        }).toList();
+        modified.forEach(book->System.out.println(book.getTittle()));
+
 
 
     }

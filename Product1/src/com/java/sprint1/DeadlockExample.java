@@ -8,8 +8,14 @@ public class DeadlockExample {
 
     private static final Object lock4=new Object();
 
+    private static final Object lock5= new Object();
+
+    private static final Object lock6= new Object();
+
 
     private static int sharedResource = 0;
+
+    private static int sharedResources1=0;
 
     public DeadlockExample() {
     }
@@ -82,10 +88,52 @@ public class DeadlockExample {
 
             }
         });
+
+
+        Thread thread5= new Thread(()->{
+            synchronized (lock5){
+                System.out.println("thread 5 holding lock 5");
+                try{
+                    Thread.sleep(100L);
+                }catch (InterruptedException e){
+                    e.printStackTrace();
+                }
+            }
+            System.out.println("theread5 waiting for lock 6");
+            synchronized (lock6){
+                sharedResources1++;
+                System.out.println("thread5 acquired lock 6");
+
+            }
+        });
+
+        Thread thread6 = new Thread(()->{
+            synchronized (lock6){
+                System.out.println("thread6 acquired lock6");
+                try{
+                    Thread.sleep(100L);
+                }catch (InterruptedException e){
+                    e.printStackTrace();
+                }
+            }
+            System.out.println("thread 6 waiting for lock5");
+            synchronized (lock5){
+                sharedResources1--;
+                System.out.println("thread6 acquired lock 6");
+            }
+        });
         thread1.start();
         thread2.start();
         thread3.start();
         thread4.start();
+        thread5.start();
+        thread6.start();
+        try{
+            thread5.join();
+            thread6.join();
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
     }
 }
 
