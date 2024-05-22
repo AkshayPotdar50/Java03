@@ -36,8 +36,21 @@ public class Day1 implements Cloneable{
 
         //theirs are two types of clonning we do in java
         //shallow clonning and deep clonning
-        System.out.println("******************************");
+        /*Cloning in Java
+Cloning in Java is the process of creating an exact copy of an object. There are two types of cloning:
 
+Shallow Cloning
+Deep Cloning
+Shallow cloning creates a new instance of the object and copies all the fields to the new instance.
+However, if the original object contains references to other objects, the references are copied rather
+ than the objects themselves. This means that both the original and the clone will reference the same
+  sub-objects.
+
+Deep Cloning creates a new instance of the object and also creates new instances of any objects referenced
+ by the original object. This means that all the sub-objects are recursively copied, ensuring that the clone
+ is entirely independent of the original object.*/
+        System.out.println("******************************");
+//shallow cloning
         Day1 day1 =new Day1("akshay");
         Day1 day2 =day1;
         System.out.println(day1.name +" "+day2.name);
