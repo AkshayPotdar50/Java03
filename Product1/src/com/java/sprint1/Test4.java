@@ -14,8 +14,14 @@ public class Test4 {
         System.out.println(average);
         System.out.println("*********************************************");
 
-        int secondLargest = Arrays.stream(numbers).distinct().boxed().sorted(Comparator.reverseOrder()).skip(1L).findFirst().orElse(-1);
+        //find average of list
+        List<Integer> list1=Arrays.asList(1, 2, 3, 4, 5);
+        double average1=list1.stream().mapToInt(Integer::intValue).average().orElse(0.0);
+        System.out.println(average1);
+
+        int secondLargest = Arrays.stream(numbers).distinct().boxed().sorted().skip(1L).findFirst().orElse(-1);
         System.out.println(secondLargest);
+        int secondSmallest=Arrays.stream(numbers).distinct().boxed().sorted(Comparator.reverseOrder()).skip(1L).findFirst().orElse(-1);
         System.out.println("*********************************************");
 
         //we can do the same for string array
@@ -80,6 +86,20 @@ public class Test4 {
         return nums;
     }
 
+    //version: v1
+    public static int[] moveZerosToRI(int[] arr){
+        int insertpos=0;
+        for(int num:arr){
+            if(num !=0){
+                arr[insertpos++]=num;
+            }
+        }
+        while (insertpos<arr.length){
+            arr[insertpos++]=0;
+        }
+        return arr;
+    }
+
     //version:2
 
     public static int[] moveZerosR(int[] nums){
@@ -129,6 +149,33 @@ public class Test4 {
             nums[inserpos--]=0;
         }
         return nums;
+    }
+
+
+    public static int[] moveZerosToL(int[] nums){
+        int insertPos= nums.length-1;
+        for(int i=nums.length-1; i>=0; i--){
+            if(nums[i] !=0){
+                nums[insertPos--]=nums[i];
+            }
+        }
+        while(insertPos >=0){
+            nums[insertPos--]=0;
+        }
+        return nums;
+    }
+
+    //finding average of map
+    public static double calculateAverage(Map<?, Integer> map){
+        if(map.isEmpty()){
+            return 0.0;
+        }
+
+        double sum=map.values().stream()
+                .mapToInt(Integer::intValue)
+                .average()
+                .orElse(0.0);
+        return sum;
     }
 
 

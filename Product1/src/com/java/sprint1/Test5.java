@@ -17,7 +17,7 @@ public class Test5 {
         System.out.println("check string is palindrome or not");
         System.out.println(isPalindrome(str2));
 
-        System.out.println("*******************************************----");
+        System.out.println("*******************************************");
         System.out.println("check anagram");
         String str1 = "akshay";
         String str3 = "yaksha";
