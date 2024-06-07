@@ -19,9 +19,9 @@ public class Test4 {
         double average1=list1.stream().mapToInt(Integer::intValue).average().orElse(0.0);
         System.out.println(average1);
 
-        int secondLargest = Arrays.stream(numbers).distinct().boxed().sorted().skip(1L).findFirst().orElse(-1);
+        int secondLargest = Arrays.stream(numbers).distinct().boxed().sorted(Comparator.reverseOrder()).skip(1L).findFirst().orElse(-1);
         System.out.println(secondLargest);
-        int secondSmallest=Arrays.stream(numbers).distinct().boxed().sorted(Comparator.reverseOrder()).skip(1L).findFirst().orElse(-1);
+        int secondSmallest=Arrays.stream(numbers).distinct().boxed().sorted().skip(1L).findFirst().orElse(-1);
         System.out.println("*********************************************");
 
         //we can do the same for string array

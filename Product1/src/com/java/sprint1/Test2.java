@@ -36,6 +36,10 @@ public class Test2 {
         System.out.println("******************************************************");
         String capitalizeFirst =capitalizeFirstLetterOfEachWord(s1);
         System.out.println(capitalizeFirst);
+
+        System.out.println("*******************************************");
+        String removeCansonant=removeCansonant(s1);
+        System.out.println(removeCansonant);
     }
         //convert half of string in upper and lower
 
@@ -82,6 +86,17 @@ public class Test2 {
             if(!("AEIOUaeiou".indexOf(ch) ==-1)){
                 result.append(ch);
             }
+        }
+        return result.toString();
+    }
+
+    public static String removeCansonant(String str){
+        StringBuilder result= new StringBuilder();
+        for(char ch:str.toCharArray()){
+            if("aeiouAEIOU".indexOf(ch) !=-1|| !Character.isLetter(ch)){
+                result.append(ch);
+            }
+
         }
         return result.toString();
     }

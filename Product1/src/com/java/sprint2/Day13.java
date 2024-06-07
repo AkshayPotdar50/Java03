@@ -19,7 +19,7 @@ public class Day13 {
         //find maximum value
         Optional<Integer> max=list1.stream().max(Integer::compare);
 
-        Optional<Integer> max2=list1.stream().max(Comparator.reverseOrder());
+        Optional<Integer> min1=list1.stream().min(Comparator.naturalOrder());
         //above will return min
 
         //finding minimum
