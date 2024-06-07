@@ -43,8 +43,17 @@ public class Test5 {
     }
 
     public static boolean isPalindrome(String str) {
-        str = str.replaceAll("[a-zA-Z0-9]", " ").toLowerCase();
+        str = str.replaceAll("[^a-zA-Z0-9]", " ").toLowerCase();
         return str.equals((new StringBuilder(str)).reverse().toString());
+    }
+
+    public static boolean isPalindrome2(String str){
+        for(int i=0; i<str.length()/2; i++){
+            if(str.charAt(i) !=str.charAt(str.length()-i-1)){
+                return false;
+            }
+        }
+        return true;
     }
 
     public static boolean checkAnagram(String str1, String str2) {
