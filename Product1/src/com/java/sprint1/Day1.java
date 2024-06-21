@@ -1,6 +1,8 @@
 package com.java.sprint1;
 
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.stream.Collectors;
 
 public class Day1 implements Cloneable {
 
@@ -30,7 +32,10 @@ public class Day1 implements Cloneable {
         System.out.println("smallest number" + smallest);
         String largest = formTheLargestNumber(arr);
         System.out.println("largest number" + largest);
-
+        //suppose the input is string
+        String l1="123456";
+        String larget1=Arrays.stream(l1.split("")).sorted(Comparator.reverseOrder()).collect(Collectors.joining());
+        System.out.println(larget1);
 
         //theirs are two types of clonning we do in java
         //shallow clonning and deep clonning
@@ -76,6 +81,8 @@ Deep Cloning creates a new instance of the object and also creates new instances
         }
         return str1.toString();
     }
+
+
 
     public static String formTheSmallestNumber(String[] arr) {
         Arrays.sort(arr, (num1, num2) -> (num1 + num2).compareTo(num2 + num1));
