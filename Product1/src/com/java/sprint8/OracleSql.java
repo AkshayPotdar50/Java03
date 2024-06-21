@@ -88,8 +88,23 @@ public class OracleSql {
     * JOIN orders o ON c.customer_id=o.customer_id
     * GROUP BY c.customer_id, c.customer_name;
     *
-    * 
     *
+    *
+    * Find the total sales for each product.
+    * SELECT p.product_id, p.product_name, SUM(o.quantity*o.price) AS total_sales
+    * FROM products p
+    * JOIN orders o ON p.product_id =o.product_id
+    * GROUP BY p.product_id, p.product_name;
+    *
+    *
+    * List the names of employees who have not completed any training courses.
+    * SELECT e.employee_name
+    * FROM employee e
+    * LEFT JOIN employee_courses ec ON e.employee_id =ec.employee_id
+    * WHERE ec.employee_id IS NULL;
+    *
+    *
+    * 
     *
     *
     *
