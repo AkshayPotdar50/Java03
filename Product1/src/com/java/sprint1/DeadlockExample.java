@@ -3,7 +3,6 @@ package com.java.sprint1;
 public class DeadlockExample {
     private static final Object lock1 = new Object();
     private static final Object lock2 = new Object();
-
     private static final Object lock3= new Object();
 
     private static final Object lock4=new Object();

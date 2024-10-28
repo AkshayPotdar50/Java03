@@ -1,9 +1,13 @@
 package com.java.HackerRank;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.OptionalInt;
+import java.util.function.Function;
 import java.util.stream.IntStream;
+
+import static java.util.stream.Collectors.*;
 
 public class ArrayMode {
     /*mode of elements in an
@@ -29,5 +33,19 @@ public class ArrayMode {
         }else{
             System.out.println("no mode found");
         }
+    }
+
+    private static void mostReapeatedElement(){
+        int[] elements={2, 1, 3, 4, 4, 1, 4, 333, 33, 3, 333, 2, 2, 2, 5, 222};
+        Function<Map<Integer, Long>, Integer> maxValuesKey=integerLongMap ->
+                integerLongMap.entrySet().stream()
+                        .max(Map.Entry.comparingByValue())
+                        .map(Map.Entry::getKey)
+                        .orElse(Integer.MAX_VALUE);
+
+        Integer maxDuplicateValue= Arrays.stream(elements)
+                .boxed()
+                .collect(collectingAndThen(groupingBy(Function.identity(), counting()),maxValuesKey));
+        System.out.println("max duplicate value in array is"+maxDuplicateValue);
     }
 }
