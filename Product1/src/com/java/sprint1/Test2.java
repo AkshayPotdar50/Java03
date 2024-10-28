@@ -1,6 +1,7 @@
 package com.java.sprint1;
 
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public class Test2 {
     public static void main(String[] args) {
@@ -90,6 +91,16 @@ public class Test2 {
         return result.toString();
     }
 
+    //by using java 8
+    public static String removeVowel1(String str){
+        return str.chars()
+                .mapToObj(c->(char)c)
+                .filter(ch->"AEIOUaeiou".indexOf(ch) ==-1)
+                .map(String::valueOf)
+                .collect(Collectors.joining());
+
+    }
+
     public static String removeCansonant(String str){
         StringBuilder result= new StringBuilder();
         for(char ch:str.toCharArray()){
@@ -99,6 +110,14 @@ public class Test2 {
 
         }
         return result.toString();
+    }
+
+    public static String removeCansonant1(String str){
+        return str.chars()
+                .mapToObj(c->(char) c)
+                .filter(ch->"aeiouAEIOU".indexOf(ch)!=-1|| !Character.isLetter(ch))
+                .map(String::valueOf)
+                .collect(Collectors.joining());
     }
 
     public static String replaceSpacesWithUnderscore(String str){

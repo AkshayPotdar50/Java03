@@ -1,5 +1,6 @@
 package com.java.sprint5;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class PalindromeCheck {
@@ -18,6 +19,14 @@ public class PalindromeCheck {
             }
         }
         return true;
+    }
+
+    public static boolean isAnagram(String s1, String s2){
+        char[] arr1=s1.replaceAll("//s", " ").toCharArray();
+        char[]arr2=s2.replaceAll("//s", " ").toCharArray();
+        Arrays.sort(arr2);
+        Arrays.sort(arr1);
+        return Arrays.equals(arr1, arr2);
     }
 
 }

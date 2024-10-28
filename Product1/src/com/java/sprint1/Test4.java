@@ -14,7 +14,7 @@ public class Test4 {
         System.out.println(average);
         System.out.println("*********************************************");
 
-        //find average of list
+        System.out.println("****************\"find average of list\"********************");
         List<Integer> list1=Arrays.asList(1, 2, 3, 4, 5);
         double average1=list1.stream().mapToInt(Integer::intValue).average().orElse(0.0);
         System.out.println(average1);
@@ -59,6 +59,10 @@ public class Test4 {
         Set<Integer> intersection = var10000.filter(set2::contains).boxed().collect(Collectors.toSet());
         System.out.println(intersection);
         System.out.println("*****************************************");
+
+        Set<Integer> set3= Arrays.stream(numbers).boxed().collect(Collectors.toSet());
+        Set<Integer> intersect=Arrays.stream(arrsy2).filter(set3::contains).boxed().collect(Collectors.toSet());
+        System.out.println(intersect);
 
         Set<Integer> union = new HashSet<>();
         union.addAll(Arrays.stream(arrsy2).boxed().collect(Collectors.toSet()));
@@ -121,6 +125,13 @@ public class Test4 {
                 .sorted((a, b)->a==0 ?(b==0?0:1) :(b==0?-1:0))
                 .collect(Collectors.toList());
     }
+
+    public static List<Integer> moveZerosLeft(List<Integer> list) {
+        return list.stream()
+                .sorted((a, b) -> a == 0 ? (b == 0 ? 0 : -1) : (b == 0 ? 1 : 0))
+                .collect(Collectors.toList());
+    }
+
 
     //moving zeros left in array
     public static int[] moveZerosToLeft(int[] nums){
