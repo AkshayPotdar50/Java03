@@ -12,6 +12,7 @@ public class Test12 {
 
         //forward iteration using listiteratir
         ListIterator<String> listIterator = arraylist.listIterator();
+        //above itertaor is listitearor and we cannot use this with map
 
         while(listIterator.hasNext()){
             String element= listIterator.next();

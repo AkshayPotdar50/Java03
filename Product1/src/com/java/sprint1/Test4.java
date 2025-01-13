@@ -37,7 +37,7 @@ public class Test4 {
         System.out.println(Arrays.toString(sorted2));
 
         System.out.println("*********************************************");
-        //3.Sort strings by length in ascending order:
+        //3.Sort  array of strings by length in ascending order:
         String[] byLength=Arrays.stream(array1).sorted(Comparator.comparing(String::length)).toArray(String[]::new);
         System.out.println(Arrays.toString(byLength));
         System.out.println("*************************************************");

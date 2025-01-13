@@ -1,6 +1,6 @@
 package com.java.Decorator;
 
-public class SolidPrinciples {
+public class   SolidPrinciples {
     /*
     *
     *
@@ -29,7 +29,7 @@ class Invoice {
     *
     *
     *
-    *
+    *OPEN-CLOSED PRINCIPLE
     * Classes should be open for extension but closed for modification.
     *
     *abstract class Shape {
@@ -66,7 +66,7 @@ class Rectangle extends Shape {
     *
     *
     *
-    *
+    *LISKOV SUBSTITUTION PRINCIPLE
     * Subtypes must be substitutable for their base types.
     * class Bird {
     public void fly() {
@@ -85,7 +85,7 @@ class Ostrich extends Bird {
 
     *
     *
-    *
+    *INTERFACE SEGREGATION PRINCIPLE
     * Clients should not be forced to depend on interfaces they don't use.
     *
     * interface Printer {
@@ -117,7 +117,7 @@ class SimplePrinter implements Printer {
     *
     *
     *
-    *
+    *DEPENDENCY INVERSION PRINCIPLE
     * High-level modules should not depend on low-level modules. Both should depend on abstractions.
     *
     * interface Keyboard {

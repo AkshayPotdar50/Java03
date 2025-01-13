@@ -16,10 +16,17 @@ public class HashMapIterator {
         }
 
         List<String> valuesList = iterateHashMap(hashMap);
+        System.out.println("**********************************************");
 
         // Print stored values as different variables
         for (int i = 0; i < valuesList.size(); i++) {
             System.out.println("variable" + (i + 1) + ": " + valuesList.get(i));
+        }
+
+        for(Map.Entry<Integer, String> entry :hashMap.entrySet()){
+            Integer key= entry.getKey();
+            String value=entry.getValue();
+            System.out.println("key"+key+" "+"value"+value);
         }
     }
 
@@ -38,5 +45,15 @@ public class HashMapIterator {
         }
         return valuesList;
     }
+
+    /*
+    *
+    * Iterator<Type> iterator = collection.iterator();
+while (iterator.hasNext()) {
+    Type element = iterator.next();
+    // Perform operations
+}
+*/
+
 }
 

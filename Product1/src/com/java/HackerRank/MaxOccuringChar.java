@@ -14,8 +14,9 @@ public class MaxOccuringChar {
         //count the frequency of ech character in string
 
         for(char ch:str.toCharArray()){
-            charcounting.put(ch, charcounting.getOrDefault(ch, 0)+1);
-
+            if(ch !=' ') {
+                charcounting.put(ch, charcounting.getOrDefault(ch, 0) + 1);
+            }
         }
 
         //find the character with maximum frequency
