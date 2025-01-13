@@ -46,7 +46,7 @@ public class Test5 {
         str = str.replaceAll("[^a-zA-Z0-9]", " ").toLowerCase();
         return str.equals((new StringBuilder(str)).reverse().toString());
     }
-
+       //condition for palindrome is a string is same when reversed.
     public static boolean isPalindrome2(String str){
         for(int i=0; i<str.length()/2; i++){
             if(str.charAt(i) !=str.charAt(str.length()-i-1)){

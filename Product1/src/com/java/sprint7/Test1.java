@@ -17,6 +17,11 @@ public class Test1 {
 
         String result1 =removeDuplicate(str);
         System.out.println(result1);
+        System.out.println("************************************************************");
+
+        String[] arr1={"a","b","a","c"};
+        String[] result3=removingDuplicate2(arr1);
+        System.out.println(Arrays.toString(result3));
     }
 
 
@@ -61,6 +66,10 @@ public class Test1 {
                 .mapToObj(c->(char)c)
                 .map(String::valueOf)
                 .collect(Collectors.joining());
+    }
+
+    public static String[] removingDuplicate2(String[] arr1){
+        return Arrays.stream(arr1).distinct().toArray(String[]::new);
     }
 
 

@@ -18,7 +18,7 @@ public class Test55 {
 
     public static String reverse(String input) {
 
-        if(input == null || input.length( ) == 0){
+        if(input == null || input.isEmpty()){
             return input;
         }
 
@@ -35,6 +35,9 @@ public class Test55 {
         // put the first character (i.e. charAt(0)) to the end. String indices are 0 based.
         // and recurse with 2nd character (i.e. substring(1)) onwards
         return reverse1(str.substring(1)) + str.charAt(0);
+    }
+    public static String reverse2(String s1){
+        return new StringBuilder(s1).reverse().toString();
     }
 
 
